@@ -1,26 +1,34 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <div>
+    <Url-form @urlAdded="addUrl"></Url-form>
+    <url-list :urls="urls"></url-list>
+  </div>
 </template>
 
-<style scoped>
+<script>
+import UrlForm from './components/UrlForm.vue';
+import UrlList from './components/UrlList.vue';
+
+export default {
+  data() {
+    return {
+      urls: [],
+    };
+  },
+  components: {
+    UrlForm,
+    UrlList,
+  },
+  methods: {
+    addUrl(url) {
+      this.urls.unshift(url);
+    },
+  },
+};
+</script>
+
+
+<style>
 header {
   line-height: 1.5;
   max-height: 100vh;
