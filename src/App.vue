@@ -1,12 +1,15 @@
 <template>
   <div>
-    <Navbar></Navbar>
+    <Navbar ></Navbar>
     <Url-form @urlAdded="addUrl"></Url-form>
-    <url-list :urls="urls"></url-list>
+  </div>
+  <div>
+    <url-list :urls="urls" class="logo"></url-list>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 import UrlForm from './components/UrlForm.vue';
 import UrlList from './components/UrlList.vue';
 import Navbar from './components/Navbar.vue';
@@ -22,6 +25,14 @@ export default {
     UrlList,
     Navbar,
   },
+  async mounted() {
+    try {
+      const response = await axios.get('http://localhost:5000/urls');
+      this.urls = response.data;
+    } catch (err) {
+      console.error(err);
+    }
+  },
   methods: {
     addUrl(url) {
       this.urls.unshift(url);
@@ -30,8 +41,7 @@ export default {
 };
 </script>
 
-
-'<style>
+<style>
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -42,7 +52,7 @@ header {
   margin: 0 auto 2rem;
 }
 
-nav {
+.navbar {
   width: 100%;
   font-size: 12px;
   text-align: center;
@@ -82,15 +92,6 @@ nav a:first-of-type {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
   }
 }
 </style>'

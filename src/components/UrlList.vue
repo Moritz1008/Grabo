@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="url in urls" :key="url._id">
-      <url-item :url="url"></url-item>
+      <url-item :url="url" class="url-item"></url-item>
     </div>
   </div>
 </template>

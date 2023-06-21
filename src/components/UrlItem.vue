@@ -1,6 +1,9 @@
 <template>
   <div>
-    <a :href="'http://localhost:5000/' + url.shortUrl" target="_blank">{{ url.shortUrl }}</a>
+    <a :href="'http://localhost:5000/' + url.shortUrl" target="_blank">http://localhost:5000/{{ url.shortUrl }}
+      <p>{{ url.originalUrl }}</p>
+    </a>
+    <button>Add to Favorites</button>
   </div>
 </template>
   
@@ -11,7 +14,7 @@ export default {
 </script>
 
 <style>
-a {
-  padding: 1rem;
+button {
+  margin: 1rem;
 }
 </style>
