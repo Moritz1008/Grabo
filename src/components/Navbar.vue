@@ -4,8 +4,8 @@
       <h1 class="logo">URL Shortener</h1>
       <nav>
         <router-link to="/" class="nav-link">Home</router-link>
-        <router-link to="/recents" class="nav-link">Recents</router-link>
         <router-link to="/favorites" class="nav-link">Favorites</router-link>
+        <router-link to="/about" class="nav-link">About</router-link>
       </nav>
     </div>
   </header>
