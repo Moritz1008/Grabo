@@ -3,14 +3,12 @@
     <Navbar></Navbar>
     <Url-form @urlAdded="addUrl"></Url-form>
     <url-list :urls="urls"></url-list>
-    <!-- <cookies></cookies> -->
   </div>
 </template>
 
 <script>
 import UrlForm from './components/UrlForm.vue';
 import UrlList from './components/UrlList.vue';
-import Cookies from './components/Cookies.vue';
 import Navbar from './components/Navbar.vue';
 
 export default {
@@ -22,7 +20,6 @@ export default {
   components: {
     UrlForm,
     UrlList,
-    // Cookies,
     Navbar,
   },
   methods: {
