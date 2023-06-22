@@ -5,7 +5,7 @@
         >http://localhost:5000/{{ url.shortUrl }}
       </a>
       <button class="right-btn" @click="copyUrl">Copy link</button>
-      <button class="right-btn">Add to Favorites</button>
+      <button class="right-btn" @click="toggleFav">Add to Favorites</button>
     </div>
     <p>Original Link: [{{ truncateUrl(url.originalUrl) }}]</p>
   </div>
@@ -20,13 +20,15 @@ export default {
     truncateUrl(url) {
       return url.length > 40 ? url.substring(0, 40) + "..." : url;
     },
-
     copyUrl() {
       navigator.clipboard.writeText(
         "http://localhost:5000/" + this.url.shortUrl
       );
     },
-  },
+    toggleFav() {
+      console.log("adding to favorites");
+    },
+  }
 };
 </script>
 
