@@ -5,29 +5,37 @@
     </div>
   </div>
 </template>
-  
+
 <script>
-import UrlItem from './UrlItem.vue';
+import UrlItem from "./UrlItem.vue";
 
 export default {
-  props: ['urls'],
+  props: ["urls"],
   components: {
     UrlItem,
   },
   methods: {
     toggleFav() {
-      console.log("parent toggled fav")
-    }
+      console.log("parent toggled fav");
+      // this.url.favUrls = true;
+    },
   },
   computed: {
     reversedUrls() {
-      return [...this.urls].reverse();  // creates a new Array
-    }
-  }
+      return [...this.urls].reverse(); // creates a new Array
+    },
+    // filteredUrls() {
+    //   if (this.favUrls) {
+    //     return this.reversedUrls;
+    //   }
+    //   return this.urls.filter((url) => {
+    //     return url.toggleFav;
+    //   });
+    // },
+  },
 };
-
 </script>
-  
+
 <style>
 .url-item {
   background-color: #ffffff;
