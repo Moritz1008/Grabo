@@ -1,0 +1,26 @@
+/* For Chrome, Safari and Opera */
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+::-webkit-scrollbar-track {
+    /* background: #f1f1f1; */
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsla(160, 100%, 37%, 1);
+    /* Vue-green */
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #558B2F;
+    /* Darker green on hover */
+}
+
+/* For Firefox, because firefox does firefox things */
+#app>.right {
+    scrollbar-width: thin;
+    scrollbar-color: hsla(160, 100%, 37%, 1) #f1f1f1;
+}
