@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="url-container">
-      <a :href="'http://localhost:5000/' + url.shortUrl" target="_blank"
-        >http://localhost:5000/{{ url.shortUrl }}
+      <a :href="'http://localhost:5000/' + url.shortUrl" target="_blank">
+        http://localhost:5000/{{ url.shortUrl }}
       </a>
       <button class="right-btn" @click="copyUrl">Copy link</button>
       <button class="right-btn" @click="toggleFav">Add to Favorites</button>
@@ -27,6 +27,7 @@ export default {
     },
     toggleFav() {
       console.log("adding to favorites");
+      this.$emit("favToggled");
     },
   }
 };

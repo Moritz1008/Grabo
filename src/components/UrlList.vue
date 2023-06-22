@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="url in reversedUrls" :key="url._id">
-      <url-item :url="url" class="url-item"></url-item>
+      <UrlItem :url="url" @favToggled="toggleFav" class="url-item"></UrlItem>
     </div>
   </div>
 </template>
@@ -13,6 +13,11 @@ export default {
   props: ['urls'],
   components: {
     UrlItem,
+  },
+  methods: {
+    toggleFav() {
+      console.log("parent toggled fav")
+    }
   },
   computed: {
     reversedUrls() {
