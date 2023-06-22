@@ -1,17 +1,45 @@
 <template>
-    <div>
-      <a :href="'http://localhost:5000/' + url.shortUrl" target="_blank">{{ url.shortUrl }}</a>
+  <div>
+    <div class="url-container">
+      <a :href="'http://localhost:5000/' + url.shortUrl" target="_blank">http://localhost:5000/{{ url.shortUrl }}
+      </a>
+      <button class="right-btn">Copy link</button>
+      <button class="right-btn">Add to Favorites</button>
     </div>
-  </template>
+    <p>Original Link: [{{ truncateUrl(url.originalUrl) }}]</p>
+  </div>
+</template>
   
-  <script>
-  export default {
-    props: ['url'],
-  };
-  </script>
+<script>
+export default {
+  props: ['url'],
 
-<style>
-  a {
-    padding: 1rem;
+  methods: {
+    // limits the displayed length to 40, created with chatgpt
+    truncateUrl(url) {
+      return url.length > 40 ? url.substring(0, 40) + '...' : url;
+    },
   }
+};
+</script>
+
+<style scoped>
+button {
+  margin: 1rem;
+}
+
+p {
+  color: gray;
+  display: inline;
+}
+
+.url-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.url-container .right-btn {
+  margin-left: auto;
+}
 </style>

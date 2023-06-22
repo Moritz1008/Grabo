@@ -1,23 +1,23 @@
 <template>
-    <div>
-      <div v-for="url in urls" :key="url._id">
-        <url-item :url="url"></url-item>
-      </div>
+  <div>
+    <div v-for="url in urls" :key="url._id">
+      <url-item :url="url" class="url-item"></url-item>
     </div>
-  </template>
+  </div>
+</template>
   
-  <script>
-  import UrlItem from './UrlItem.vue';
+<script>
+import UrlItem from './UrlItem.vue';
+
+export default {
+  props: ['urls'],
+  components: {
+    UrlItem,
+  },
+};
+</script>
   
-  export default {
-    props: ['urls'],
-    components: {
-      UrlItem,
-    },
-  };
-  </script>
-  
-  <style>
+<style>
 .url-item {
   background-color: #ffffff;
   padding: 1.5rem;
