@@ -4,7 +4,7 @@ import UrlList from './components/UrlList.vue';
 
 const routes = [
   { path: '/', component: UrlForm },
-  { path: '/recents', component: UrlList },
+  { path: '/about', component: UrlList },
 //   { path: '/favorites', component: Favorites }
 ];
 
