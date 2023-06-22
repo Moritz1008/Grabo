@@ -21,3 +21,13 @@
 // })
 
 // export default router
+
+import VueRouter from 'vue-router';
+import routes from './routes';
+
+const router = new VueRouter({
+  mode: 'history', // Optional: Verwendet den HTML5-History-Modus für saubere URLs
+  routes
+});
+
+export default router;
