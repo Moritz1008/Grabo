@@ -1,8 +1,8 @@
 <template>
   <div>
-    <form @submit.prevent="submitUrl">
-      <input v-model="url" placeholder="Enter URL" required />
-      <button type="submit">Shorten</button>
+    <form @submit.prevent="submitUrl" class="input-container">
+      <input class="input-field" v-model="url" placeholder="Enter URL" required />
+      <button class="submit-button" type="submit">Shorten</button>
     </form>
   </div>
 </template>
@@ -29,5 +29,32 @@ export default {
 </script>
   
 <style>
+.input-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.input-field {
+  width: 300px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-button {
+  background-color: #666;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: hsla(160, 100%, 37%, 1);
+  /* background-color: #0056b3; */
+  transform: scale(1.1,1.1);
+}
 </style>
   

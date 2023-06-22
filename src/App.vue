@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Navbar ></Navbar>
-    <Url-form @urlAdded="addUrl"></Url-form>
+    <Navbar></Navbar>
+    <UrlForm urlAdded="addUrl" id="urlform"></UrlForm>
   </div>
   <div>
     <url-list :urls="urls" class="logo"></url-list>
@@ -77,6 +77,10 @@ nav a:first-of-type {
   border: 0;
 }
 
+#urlform {
+  margin: 2rem;
+}
+
 @media (min-width: 1024px) {
   header {
     display: flex;
@@ -93,5 +97,6 @@ nav a:first-of-type {
     place-items: flex-start;
     flex-wrap: wrap;
   }
+
 }
 </style>'
