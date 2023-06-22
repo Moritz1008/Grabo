@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="left">
     <Navbar></Navbar>
-    <UrlForm urlAdded="addUrl" id="urlform"></UrlForm>
+    <UrlForm @urlAdded="addUrl" id="urlform"></UrlForm>
   </div>
-  <div>
-    <url-list :urls="urls" class="logo"></url-list>
+  <div class="right">
+    <UrlList :urls="urls" class="logo"></UrlList>
   </div>
 </template>
 
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     addUrl(url) {
-      this.urls.unshift(url);
+      this.urls.push(url);
     },
   },
 };

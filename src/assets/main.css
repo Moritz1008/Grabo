@@ -25,13 +25,28 @@ a,
   body {
     display: flex;
     place-items: center;
+    height: 100vh;
+    overflow: hidden;
   }
 
   #app {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 50px;
+    height: 100%;
+    overflow: hidden;
     padding: 0 2rem;
     margin-top: 2rem;
+  }
+
+  #app > .left {
+    display: flex;
+    align-items: center;
+    flex-direction: column; /* Adjusts flex direction to column */
+    justify-content: center;
+  }
+
+  #app > .right {
+    overflow-y: auto;
   }
 }

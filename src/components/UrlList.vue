@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="url in urls" :key="url._id">
+    <div v-for="url in reversedUrls" :key="url._id">
       <url-item :url="url" class="url-item"></url-item>
     </div>
   </div>
@@ -14,7 +14,13 @@ export default {
   components: {
     UrlItem,
   },
+  computed: {
+    reversedUrls() {
+      return [...this.urls].reverse();  // creates a new Array
+    }
+  }
 };
+
 </script>
   
 <style>
