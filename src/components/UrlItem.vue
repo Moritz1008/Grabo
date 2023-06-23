@@ -1,8 +1,9 @@
 <template>
   <div>
     <div class="url-container">
-      <a :href="'http://localhost:5000/' + url.shortUrl" target="_blank">
-        http://localhost:5000/{{ url.shortUrl }}
+      <a :href="'https://be.riedel1.duckdns.org/' + url.shortUrl" target="_blank">
+      <!-- <a :href="'http://localhost:5000/' + url.shortUrl" target="_blank"> -->
+        https://be.riedel1.duckdns.org/{{ url.shortUrl }}
       </a>
       <button class="right-btn" @click="copyUrl">Copy link</button>
       <button class="right-btn" @click="toggleFav">Add to Favorites</button>
@@ -22,7 +23,7 @@ export default {
     },
     copyUrl() {
       navigator.clipboard.writeText(
-        "http://localhost:5000/" + this.url.shortUrl
+        "https://be.riedel1.duckdns.org/" + this.url.shortUrl
       );
     },
     toggleFav() {
@@ -49,7 +50,7 @@ p {
   align-items: center;
 }
 
-.url-container .right-btn {
+.right-btn {
   margin-left: auto;
 }
 </style>

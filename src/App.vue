@@ -27,7 +27,8 @@ export default {
   },
   async mounted() {
     try {
-      const response = await axios.get('http://localhost:5000/urls');
+      const response = await axios.get('https://be.riedel1.duckdns.org/urls');
+      // const response = await axios.get('http://localhost:5000/urls');
       this.urls = response.data;
     } catch (err) {
       console.error(err);

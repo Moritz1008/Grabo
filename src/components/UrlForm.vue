@@ -18,7 +18,8 @@ export default {
   },
   methods: {
     async submitUrl() {
-      const response = await axios.post('http://localhost:5000/shorten', {
+      const response = await axios.post('https://be.riedel1.duckdns.org/shorten', {
+      // const response = await axios.post('http://localhost:5000/shorten', {
         originalUrl: this.url,
       });
       this.url = '';
