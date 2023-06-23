@@ -1,6 +1,6 @@
 <template>
   <div class="left">
-    <Navbar></Navbar>
+    <Navbar class="navbar"></Navbar>
     <UrlForm @urlAdded="addUrl" id="urlform"></UrlForm>
   </div>
   <div class="right">
@@ -48,10 +48,8 @@ header {
 }
 
 .navbar {
+  border-radius: 8px;
   width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
 }
 
 nav a.router-link-exact-active {

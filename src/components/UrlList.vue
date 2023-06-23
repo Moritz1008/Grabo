@@ -40,7 +40,7 @@ export default {
 
 <style scoped>
 .url-item {
-  background-color: #ffffff;
+  background-color: #eeeeee;
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

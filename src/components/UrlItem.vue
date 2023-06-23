@@ -5,12 +5,15 @@
         https://be.riedel1.duckdns.org/{{ url.shortUrl }}
       </a>
       <div class="btn-container">
-        <button class="right-btn" @click="copyUrl">
+        <button class="copyButton" @click="copyUrl">
           <font-awesome-icon icon="copy" />
         </button>
         <div v-if="showToast" class="toast-message">Link copied!</div>
-        <button class="right-btn" @click="toggleFav">
+        <button class="favButton" @click="triggerFav">
           <font-awesome-icon icon="star" />
+        </button>
+        <button class="delButton" @click="triggerDelete">
+          <font-awesome-icon icon="trash" />
         </button>
       </div>
     </div>
@@ -20,9 +23,9 @@
 
 <script>
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCopy, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faCopy, faStar, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-library.add(faCopy, faStar);
+library.add(faCopy, faStar, faTrash);
 
 export default {
   data() {
@@ -48,10 +51,14 @@ export default {
         this.showToast = false;
       }, 1000);
     },
-    toggleFav() {
+    triggerFav() {
       console.log("adding to favorites");
-      this.$emit("favToggled");
+      this.$emit("fav triggered");
     },
+    triggerDelete() {
+      console.log("deleting");
+      this.$emit("delete triggered");
+    }
   },
 };
 </script>
@@ -68,8 +75,18 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+.copyButton:hover {
   background-color: hsla(160, 100%, 37%, 1);
+  transform: scale(1.1, 1.1);
+}
+
+.favButton:hover {
+  background-color: rgb(244, 208, 63);
+  transform: scale(1.1, 1.1);
+}
+
+.delButton:hover {
+  background-color: rgb(184, 50, 50);
   transform: scale(1.1, 1.1);
 }
 
@@ -88,6 +105,7 @@ p {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
+  height: 2rem;
 }
 
 .toast-message {

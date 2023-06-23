@@ -19,7 +19,6 @@ export default {
   methods: {
     async submitUrl() {
       const response = await axios.post('https://be.riedel1.duckdns.org/shorten', {
-      // const response = await axios.post('http://localhost:5000/shorten', {
         originalUrl: this.url,
       });
       this.url = '';
@@ -32,6 +31,7 @@ export default {
 <style>
 .input-container {
   display: flex;
+  justify-content: center;
   gap: 1rem;
 }
 
@@ -55,7 +55,7 @@ export default {
 .submit-button:hover {
   background-color: hsla(160, 100%, 37%, 1);
   /* background-color: #0056b3; */
-  transform: scale(1.1,1.1);
+  transform: scale(1.1, 1.1);
 }
 </style>
   
