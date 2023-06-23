@@ -4,15 +4,20 @@
       <a :href="'http://localhost:5000/' + url.shortUrl" target="_blank">
         http://localhost:5000/{{ url.shortUrl }}
       </a>
-      <button class="right-btn" @click="copyUrl">Copy link</button>
+      <button class="right-btn" @click="copyUrl"><font-awesome-icon icon="copy" /></button>
       <div v-if="showToast" class="toast-message">Link copied!</div>
-      <button class="right-btn" @click="toggleFav">Add to Favorites</button>
+      <button class="right-btn" @click="toggleFav"><font-awesome-icon icon="star" /></button>
     </div>
     <p>Original Link: [{{ truncateUrl(url.originalUrl) }}]</p>
   </div>
 </template>
 
 <script>
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCopy, faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+library.add(faCopy, faStar);
+
 export default {
   data() {
     return {
@@ -20,7 +25,9 @@ export default {
     };
   },
   props: ["url"],
-
+  components: {
+    FontAwesomeIcon,
+  },
   methods: {
     // limits the displayed length to 40, created with chatgpt
     truncateUrl(url) {
@@ -45,8 +52,7 @@ export default {
 
 <style scoped>
 button {
-  margin: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   background-color: #666;
   color: #fff;
   padding: 0.5rem 1rem;
@@ -69,11 +75,12 @@ p {
 .url-container {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: left;
+  /* flex-direction: column; */
 }
 
 .url-container .right-btn {
-  margin-left: auto;
+  margin-left: 5rem;
 }
 
 .toast-message {
