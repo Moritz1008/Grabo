@@ -1,34 +1,52 @@
 <template>
   <div>
-    <div v-for="url in reversedUrls" :key="url._id">
+    <div
+      v-for="url in reversedUrls"
+      :key="url._id"
+      :class="{ favUrls: url.favUrls }"
+    >
       <UrlItem :url="url" @favToggled="toggleFav" class="url-item"></UrlItem>
     </div>
   </div>
 </template>
-  
+
 <script>
-import UrlItem from './UrlItem.vue';
+import UrlItem from "./UrlItem.vue";
 
 export default {
-  props: ['urls'],
+  data() {
+    return {
+      // favUrls: false,
+    };
+  },
+  props: ["urls"],
   components: {
     UrlItem,
   },
   methods: {
     toggleFav() {
-      console.log("parent toggled fav")
-    }
+      console.log("parent toggled fav");
+      this.url.favUrls = !this.url.favUrls;
+      // this.filteredUrls();
+    },
   },
   computed: {
     reversedUrls() {
-      return [...this.urls].reverse();  // creates a new Array
-    }
-  }
+      return [...this.urls].reverse(); // creates a new Array
+    },
+    // filteredUrls() {
+    //   if (this.favUrls) {
+    //     return this.reversedUrls;
+    //   }
+    //   return this.urls.filter((url) => {
+    //     return url.toggleFav;
+    //   });
+    // },
+  },
 };
-
 </script>
-  
-<style>
+
+<style scoped>
 .url-item {
   background-color: #ffffff;
   padding: 1.5rem;
@@ -40,5 +58,9 @@ export default {
 
 .url-item:hover {
   transform: translateY(-5px);
+}
+
+.favUrls {
+  background-color: yellow;
 }
 </style>
