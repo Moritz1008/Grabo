@@ -46,7 +46,7 @@ export default {
       this.showToast = true;
       setTimeout(() => {
         this.showToast = false;
-      }, 2000);
+      }, 1000);
     },
     toggleFav() {
       console.log("adding to favorites");
@@ -81,9 +81,7 @@ p {
 .url-container {
   display: flex;
   flex-wrap: nowrap;
-  /* align-items: left; */
   justify-content: space-between;
-  /* flex-direction: column; */
 }
 
 .btn-container {
@@ -94,9 +92,6 @@ p {
 
 .toast-message {
   position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
   background-color: #333;
   color: #fff;
   padding: 10px 20px;
