@@ -4,7 +4,7 @@
     <UrlForm @urlAdded="addUrl" id="urlform"></UrlForm>
   </div>
   <div class="right">
-    <UrlList :urls="urls" class="logo"></UrlList>
+    <UrlList :urls="urls"></UrlList>
   </div>
 </template>
 
@@ -28,7 +28,6 @@ export default {
   async mounted() {
     try {
       const response = await axios.get('https://be.riedel1.duckdns.org/urls');
-      // const response = await axios.get('http://localhost:5000/urls');
       this.urls = response.data;
     } catch (err) {
       console.error(err);
@@ -46,11 +45,6 @@ export default {
 header {
   line-height: 1.5;
   max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
 }
 
 .navbar {
@@ -89,15 +83,10 @@ nav a:first-of-type {
     padding-right: calc(var(--section-gap) / 2);
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
   header .wrapper {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
   }
-
 }
 </style>'

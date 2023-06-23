@@ -49,5 +49,6 @@ a,
 
   #app > .right {
     overflow-y: auto;
+    padding: 1rem;
   }
 }

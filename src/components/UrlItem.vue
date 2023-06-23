@@ -2,12 +2,17 @@
   <div>
     <div class="url-container">
       <a :href="'https://be.riedel1.duckdns.org/' + url.shortUrl" target="_blank">
-      <!-- <a :href="'http://localhost:5000/' + url.shortUrl" target="_blank"> -->
         https://be.riedel1.duckdns.org/{{ url.shortUrl }}
       </a>
-      <button class="right-btn" @click="copyUrl"><font-awesome-icon icon="copy" /></button>
-      <div v-if="showToast" class="toast-message">Link copied!</div>
-      <button class="right-btn" @click="toggleFav"><font-awesome-icon icon="star" /></button>
+      <div class="btn-container">
+        <button class="right-btn" @click="copyUrl">
+          <font-awesome-icon icon="copy" />
+        </button>
+        <div v-if="showToast" class="toast-message">Link copied!</div>
+        <button class="right-btn" @click="toggleFav">
+          <font-awesome-icon icon="star" />
+        </button>
+      </div>
     </div>
     <p>Original Link: [{{ truncateUrl(url.originalUrl) }}]</p>
   </div>
@@ -53,7 +58,7 @@ export default {
 
 <style scoped>
 button {
-  margin-bottom: 1rem;
+  margin-left: 1rem;
   background-color: #666;
   color: #fff;
   padding: 0.5rem 1rem;
@@ -75,13 +80,16 @@ p {
 
 .url-container {
   display: flex;
-  flex-wrap: wrap;
-  align-items: left;
+  flex-wrap: nowrap;
+  /* align-items: left; */
+  justify-content: space-between;
   /* flex-direction: column; */
 }
 
-.right-btn {
-  margin-left: 5rem;
+.btn-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 .toast-message {

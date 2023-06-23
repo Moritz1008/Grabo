@@ -33,15 +33,7 @@ export default {
   computed: {
     reversedUrls() {
       return [...this.urls].reverse(); // creates a new Array
-    },
-    // filteredUrls() {
-    //   if (this.favUrls) {
-    //     return this.reversedUrls;
-    //   }
-    //   return this.urls.filter((url) => {
-    //     return url.toggleFav;
-    //   });
-    // },
+    }
   },
 };
 </script>
