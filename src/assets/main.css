@@ -33,7 +33,7 @@ a,
   #app {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 50px;
+    grid-gap: 50px;   /* TODO: make this dynamic */
     height: 100%;
     overflow: hidden;
     padding: 0 2rem;
