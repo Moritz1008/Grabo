@@ -8,10 +8,11 @@
         <button class="copyButton" @click="copyUrl">
           <font-awesome-icon icon="copy" />
         </button>
-        <div v-if="showToast" class="toast-message">Link copied!</div>
+        <div v-if="showCopyToast" class="toast-message">Link copied!</div>
         <button class="favButton" @click="triggerFav">
           <font-awesome-icon icon="star" />
         </button>
+        <div v-if="showFavToast" class="toast-message">Coming soon...</div>
         <button class="delButton" @click="triggerDelete">
           <font-awesome-icon icon="trash" />
         </button>
@@ -30,7 +31,8 @@ library.add(faCopy, faStar, faTrash);
 export default {
   data() {
     return {
-      showToast: false,
+      showCopyToast: false,
+      showFavToast: false,
     };
   },
   props: ["url"],
@@ -46,14 +48,18 @@ export default {
       navigator.clipboard.writeText(
         "https://be.riedel1.duckdns.org/" + this.url.shortUrl
       );
-      this.showToast = true;
+      this.showCopyToast = true;
       setTimeout(() => {
-        this.showToast = false;
+        this.showCopyToast = false;
       }, 1000);
     },
     triggerFav() {
       console.log("adding to favorites");
       this.$emit("favToggled");
+      this.showFavToast = true;
+      setTimeout(() => {
+        this.showFavToast = false;
+      }, 1000);
     },
     triggerDelete() {
       console.log("deleting");
