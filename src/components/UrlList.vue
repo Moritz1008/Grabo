@@ -7,26 +7,53 @@
 </template>
 
 <script>
+import axios from 'axios';
 import UrlItem from "./UrlItem.vue";
 
 export default {
+
   data() {
     return {
-      // favUrls: false,
+      urls: [],
     };
   },
-  props: ["urls"],
+
   components: {
     UrlItem,
   },
+
+  async mounted() {
+    try {
+      const response = await axios.get('https://be.riedel1.duckdns.org/urls');
+      this.urls = response.data;
+    } catch (err) {
+      console.error(err);
+    }
+  },
+
   methods: {
+    addUrl(url) {
+      this.urls.push(url);
+    },
+
+    async deleteItem(url) {
+      try {
+        // Making the DELETE request to your server.
+        await axios.delete(`https://be.riedel1.duckdns.org/urls/${url.shortUrl}`);
+        console.log(`URL with shortUrl '${url.shortUrl}' was deleted`);
+
+        // Remove deleted url from the urls array.
+        this.urls = this.urls.filter(u => u.shortUrl !== url.shortUrl);
+      } catch (err) {
+        console.error(`Error deleting URL with shortUrl '${url.shortUrl}'`);
+      }
+    },
+
     toggleFav() {
       console.log("parent toggled fav");
     },
-    deleteItem() {
-      console.log("parent got deleting event")
-    }
   },
+
   computed: {
     reversedUrls() {
       return [...this.urls].reverse();

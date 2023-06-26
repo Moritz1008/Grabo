@@ -63,7 +63,7 @@ export default {
     },
     triggerDelete() {
       console.log("deleting");
-      this.$emit("delete");
+      this.$emit("delete", this.url);
     }
   },
 };

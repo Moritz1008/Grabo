@@ -1,16 +1,15 @@
 <template>
   <div class="left">
     <Navbar class="navbar"></Navbar>
-    <UrlForm @urlAdded="addUrl" id="urlform"></UrlForm>
+    <UrlForm @urlAdded="pushUrl" id="urlform"></UrlForm>
     <RouterView></RouterView>
   </div>
   <div class="right">
-    <UrlList :urls="urls"></UrlList>
+    <UrlList ref="urlList" :urls="urls"></UrlList>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
 import UrlForm from './components/UrlForm.vue';
 import UrlList from './components/UrlList.vue';
 import Navbar from './components/Navbar.vue';
@@ -18,7 +17,7 @@ import Navbar from './components/Navbar.vue';
 export default {
   data() {
     return {
-      urls: [],
+      // urls: [],
     };
   },
   components: {
@@ -26,17 +25,9 @@ export default {
     UrlList,
     Navbar,
   },
-  async mounted() {
-    try {
-      const response = await axios.get('https://be.riedel1.duckdns.org/urls');
-      this.urls = response.data;
-    } catch (err) {
-      console.error(err);
-    }
-  },
   methods: {
-    addUrl(url) {
-      this.urls.push(url);
+    pushUrl(url) {
+      this.$refs.urlList.addUrl(url);
     },
   },
 };
