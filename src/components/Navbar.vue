@@ -17,8 +17,8 @@ header {
 
 .wrapper {
   display: flex;
-  align-items: center;              /* horizontal */
-  justify-content: space-around;   /* vertical */
+  align-items: center;                /* horizontal */
+  justify-content: space-around;      /* vertical */
 }
 
 h1 {

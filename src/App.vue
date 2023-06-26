@@ -2,6 +2,7 @@
   <div class="left">
     <Navbar class="navbar"></Navbar>
     <UrlForm @urlAdded="addUrl" id="urlform"></UrlForm>
+    <RouterView></RouterView>
   </div>
   <div class="right">
     <UrlList :urls="urls"></UrlList>

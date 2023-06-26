@@ -1,11 +1,7 @@
 <template>
   <div>
-    <div
-      v-for="url in reversedUrls"
-      :key="url._id"
-      :class="{ favUrls: url.favUrls }"
-    >
-      <UrlItem :url="url" @favToggled="toggleFav" class="url-item"></UrlItem>
+    <div v-for="url in reversedUrls" :key="url._id">
+      <UrlItem :url="url" @favToggled="toggleFav" @delete="deleteItem" class="url-item"></UrlItem>
     </div>
   </div>
 </template>
@@ -26,13 +22,14 @@ export default {
   methods: {
     toggleFav() {
       console.log("parent toggled fav");
-      this.url.favUrls = !this.url.favUrls;
-      // this.filteredUrls();
     },
+    deleteItem() {
+      console.log("parent got deleting event")
+    }
   },
   computed: {
     reversedUrls() {
-      return [...this.urls].reverse(); // creates a new Array
+      return [...this.urls].reverse();
     }
   },
 };

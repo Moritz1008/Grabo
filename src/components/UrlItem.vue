@@ -53,11 +53,11 @@ export default {
     },
     triggerFav() {
       console.log("adding to favorites");
-      this.$emit("fav triggered");
+      this.$emit("favToggled");
     },
     triggerDelete() {
       console.log("deleting");
-      this.$emit("delete triggered");
+      this.$emit("delete");
     }
   },
 };
