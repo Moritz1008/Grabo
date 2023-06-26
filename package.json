@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "serve": "vue-cli-service serve",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -12,10 +13,10 @@
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "axios": "^1.4.0",
     "vue": "^3.3.2",
-    "vue-router": "^4.2.2"
-  },
-  "devDependencies": {
+    "vue-router": "^4.2.2",
     "@vitejs/plugin-vue": "^4.2.3",
     "vite": "^4.3.5"
+  },
+  "devDependencies": {
   }
 }

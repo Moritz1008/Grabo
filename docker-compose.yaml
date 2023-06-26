@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  grabo_backend:
+    image: moritz/vue-frontend
+    container_name: grabo_frontend
+    ports:
+      - 1083:8080
+    volumes:
+      - .:/app
+    restart: unless-stopped
+    # command: npm run serve
+
