@@ -8,6 +8,6 @@ services:
       - 1083:8080
     volumes:
       - .:/app
-    command: npm run serve
     restart: unless-stopped
+    # command: npm run serve
 
