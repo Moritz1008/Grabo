@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="listContainer">
     <div v-for="url in reversedUrls" :key="url._id">
       <UrlItem :url="url" @favToggled="toggleFav" @delete="deleteItem" class="url-item"></UrlItem>
     </div>
@@ -17,11 +17,9 @@ export default {
       urls: [],
     };
   },
-
   components: {
     UrlItem,
   },
-
   async mounted() {
     try {
       const response = await axios.get('https://be.riedel1.duckdns.org/urls');
@@ -38,11 +36,9 @@ export default {
 
     async deleteItem(url) {
       try {
-        // Making the DELETE request to your server.
         await axios.delete(`https://be.riedel1.duckdns.org/urls/${url.shortUrl}`);
         console.log(`URL with shortUrl '${url.shortUrl}' was deleted`);
 
-        // Remove deleted url from the urls array.
         this.urls = this.urls.filter(u => u.shortUrl !== url.shortUrl);
       } catch (err) {
         console.error(`Error deleting URL with shortUrl '${url.shortUrl}'`);
@@ -78,5 +74,12 @@ export default {
 
 .favUrls {
   background-color: yellow;
+}
+
+.listContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 </style>

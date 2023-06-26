@@ -35,15 +35,19 @@ export default {
       showFavToast: false,
     };
   },
+
   props: ["url"],
+
   components: {
     FontAwesomeIcon,
   },
+  
   methods: {
     // limits the displayed length to 40, created with chatgpt
     truncateUrl(url) {
       return url.length > 40 ? url.substring(0, 40) + "..." : url;
     },
+
     copyUrl() {
       navigator.clipboard.writeText(
         "https://be.riedel1.duckdns.org/" + this.url.shortUrl
@@ -53,6 +57,7 @@ export default {
         this.showCopyToast = false;
       }, 1000);
     },
+
     triggerFav() {
       console.log("adding to favorites");
       this.$emit("favToggled");
@@ -61,6 +66,7 @@ export default {
         this.showFavToast = false;
       }, 1000);
     },
+
     triggerDelete() {
       console.log("deleting");
       this.$emit("delete", this.url);

@@ -17,8 +17,8 @@ header {
 
 .wrapper {
   display: flex;
-  align-items: center;                /* horizontal */
-  justify-content: space-around;      /* vertical */
+  align-items: center;
+  justify-content: space-around;
 }
 
 h1 {
@@ -34,7 +34,6 @@ nav {
 
 .nav-link {
   color: #fff;
-  text-decoration: none;
   padding: 0.5rem;
   border-radius: 0.25rem;
   transition: background-color 0.3s ease;
