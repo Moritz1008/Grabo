@@ -1,29 +1,30 @@
-# Grabo
+# Graphische Bedienoberflaechen - Praktische Aufgabe
+"LinkShrink" - ein URL Shortener
 
-This template should help get you started developing with Vue 3 in Vite.
+# Gruppenmitglieder
+- Moritz Riedel, 35596
+- Alexander Schmid, 35603
+- Andreas Ulrich, 33412
 
-## Recommended IDE Setup
+# Beschreibung
+Mit LinkShrink kann man:
+- URLs kuerzen und in einer Datenbank abspeichern
+- beim Aufrufen der Seite bisher abgespeicherte URLs anschauen und in die Zwischenablage kopieren
+- einzelne URLs wieder aus der Datenbank loeschen
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Unsere Anwendung verwendet ein Node.js-Backend für die Interaktion mit einer MongoDB Atlas-Datenbank. Sowohl das Frontend als auch das Backend sind zur einfachen Bereitstellung mithilfe von Docker in Containern verpackt. Der Host des Docker Containers ist ein Fujitsu ThinClient S920. HTTPS und Subdomain-Management werden von NGINX übernommen. Datenpersistenz wird mit dem kostenlosen Kontingent von MongoDB Atlas erreicht.
 
-## Customize configuration
+# API
+(link zur db?)
+(link zum be?)
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+# Fremder Code
+(weißt du noch, was von gpt war?)
 
-## Project Setup
+# Anweisungen zum starten der Anwendung
+- npm install
+- npm run dev
 
-```sh
-npm install
-```
+# Link zur Anwendung
+- https://grabo.riedel1.duckdns.org/
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
