@@ -72,14 +72,10 @@ export default {
   transform: translateY(-5px);
 }
 
-.favUrls {
-  background-color: yellow;
-}
-
 .listContainer {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: right;
 }
 </style>
