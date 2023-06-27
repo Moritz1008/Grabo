@@ -39,18 +39,7 @@ header {
   width: 100%;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
 #urlform {
   margin: 2rem;
-}
-
-@media (min-width: 1024px) {
 }
 </style>'

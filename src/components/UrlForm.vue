@@ -4,6 +4,7 @@
       <input class="input-field" v-model="url" placeholder="Enter URL" required />
       <button class="submit-button" type="submit">Shorten</button>
     </form>
+    <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
   </div>
 </template>
   
@@ -14,17 +15,35 @@ export default {
   data() {
     return {
       url: '',
+      errorMessage: '',
     };
   },
   methods: {
-    async submitUrl() {
-      const response = await axios.post('https://be.riedel1.duckdns.org/shorten', {
-        originalUrl: this.url,
-      });
-      this.url = '';
-      this.$emit('urlAdded', response.data);
+    isValidUrl(string) {
+      try {
+        new URL(string);
+      } catch (_) {
+        return false;  
+      }
+      return true;
     },
-  },
+    async submitUrl() {
+      if (this.isValidUrl(this.url)) {
+        try {
+          const response = await axios.post('https://be.riedel1.duckdns.org/shorten', {
+            originalUrl: this.url,
+          });
+          this.url = '';
+          this.errorMessage = '';
+          this.$emit('urlAdded', response.data);
+        } catch (error) {
+          this.errorMessage = "Something went wrong. Please try again.";
+        }
+      } else {
+        this.errorMessage = 'Please enter a valid URL';
+      }
+    }
+  }
 };
 </script>
   
@@ -54,8 +73,12 @@ export default {
 
 .submit-button:hover {
   background-color: hsla(160, 100%, 37%, 1);
-  /* background-color: #0056b3; */
   transform: scale(1.1, 1.1);
+}
+
+.error-message {
+  color: red;
+  margin-top: 1rem;
 }
 </style>
   
