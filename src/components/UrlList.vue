@@ -39,7 +39,7 @@ export default {
         await axios.delete(`https://be.riedel1.duckdns.org/urls/${url.shortUrl}`);
         console.log(`URL with shortUrl '${url.shortUrl}' was deleted`);
 
-        this.urls = this.urls.filter(u => u.shortUrl !== url.shortUrl);
+        this.urls = this.urls.filter(u => u.shortUrl !== url.shortUrl);       // The arrow function was created with ChatGPT
       } catch (err) {
         console.error(`Error deleting URL with shortUrl '${url.shortUrl}'`);
       }

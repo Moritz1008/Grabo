@@ -43,7 +43,7 @@ export default {
   },
   
   methods: {
-    // limits the displayed length to 40, created with chatgpt
+    // limits the displayed length to 40, created with chatgpt (Not because it's hard, I was just lazy)
     truncateUrl(url) {
       return url.length > 40 ? url.substring(0, 40) + "..." : url;
     },

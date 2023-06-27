@@ -51,8 +51,7 @@
 }
 
 *,
-*::before,
-*::after {
+*::before, *::after {   /*selects all pseudo-elements attached to any element*/    
   box-sizing: border-box;
   margin: 0;
   font-weight: normal;

@@ -8,7 +8,7 @@
   font-weight: normal;
 }
 
-a, .green {
+a {
   text-decoration: none;
   color: hsla(160, 100%, 37%, 1);
   transition: 0.4s;
@@ -30,7 +30,7 @@ b {
   #app {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 50px;   /* TODO: make this dynamic */
+    grid-gap: 50px;
     height: 100%;
     overflow: hidden;
     padding: 0 2rem;
@@ -40,7 +40,7 @@ b {
   #app > .left {
     display: flex;
     align-items: center;
-    flex-direction: column; /* Adjusts flex direction to column */
+    flex-direction: column;
     justify-content: center;
   }
 
