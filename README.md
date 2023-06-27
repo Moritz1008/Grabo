@@ -19,6 +19,7 @@ Unsere Anwendung verwendet ein Node.js-Backend für die Interaktion mit einer Mo
 # Fremder Code
 Wir haben ChatGPT zur ursprünglichen erstellung eines (sehr einfachen) Grundgerüsts verwendet. 
 Ebenso kam ChatGPT beim debugging zum Einsatz sowohl bei der Suche von zum Vue-Grün passenden Farbcodes.
+Mit ChatGPT erstellte Codeschnipsel sind im Code mit Kommentaren markiert.
 
 Zum Nachschlagen bei Unklarheiten mit HTML, CSS oder JavaScript haben wir W3Schools verwendet.
 
