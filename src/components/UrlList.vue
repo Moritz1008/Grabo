@@ -76,6 +76,6 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: right;
+  justify-content: center;
 }
 </style>
