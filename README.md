@@ -1,5 +1,5 @@
-# Graphische Bedienoberflaechen - Praktische Aufgabe
-"LinkShrink" - ein URL Shortener
+# "LinkShrink" - ein URL Shortener
+
 
 # Gruppenmitglieder
 - Moritz Riedel, 35596
